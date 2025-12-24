@@ -5,15 +5,18 @@ import Link from "next/link";
 
 export default function CTASection() {
  return (
-  <section className="py-24 bg-[#050505] border-t border-white/5">
-   <div className="container mx-auto px-6">
+  <section className="py-24 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+   {/* Background Gradient Circles */}
+   <div className="absolute top-[-10%] right-[-8%] w-[55vw] h-[55vw] bg-[#c0a080] opacity-[0.15] rounded-full blur-[120px] pointer-events-none"></div>
+   <div className="absolute bottom-[-10%] left-[-8%] w-[50vw] h-[50vw] bg-[#c0a080] opacity-[0.15] rounded-full blur-[110px] pointer-events-none"></div>
+
+   <div className="container mx-auto px-6 relative z-10">
     <motion.div
      initial={{ opacity: 0, y: 30 }}
      whileInView={{ opacity: 1, y: 0 }}
      viewport={{ once: true }}
      transition={{ duration: 0.6 }}
      className="bg-gradient-to-r from-[#121212] to-[#1a1a1a] border border-white/5 rounded-2xl p-12 md:p-16 text-center relative overflow-hidden">
-     
      {/* Background Decorations */}
      <div className="absolute top-0 right-0 w-64 h-64 bg-[#c0a080] opacity-[0.03] rounded-full blur-[100px]"></div>
      <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#c0a080] opacity-[0.03] rounded-full blur-[80px]"></div>
@@ -24,9 +27,10 @@ export default function CTASection() {
        <span className="text-[#c0a080] italic">Dining Experience?</span>
       </h2>
       <p className="text-[#8d7f71] text-lg mb-8 max-w-2xl mx-auto">
-       Join thousands of food lovers discovering and booking the best restaurants. Start earning rewards with every reservation today.
+       Join thousands of food lovers discovering and booking the best
+       restaurants. Start earning rewards with every reservation today.
       </p>
-      
+
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
        <Link
         href="/signup"
@@ -52,7 +56,7 @@ export default function CTASection() {
       { number: "60,000+", label: "Restaurants Worldwide" },
       { number: "500M+", label: "Diners Seated" },
       { number: "40+", label: "Countries Covered" },
-      { number: "4.8★", label: "Average Rating" }
+      { number: "4.8★", label: "Average Rating" },
      ].map((stat, index) => (
       <motion.div
        key={index}

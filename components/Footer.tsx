@@ -1,7 +1,11 @@
 export default function Footer() {
  return (
-  <footer className="bg-[#121212] border-t border-white/10 py-12 mt-20">
-   <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+  <footer className="bg-[#121212] border-t border-white/10 py-12 mt-20 relative overflow-hidden">
+   {/* Background Gradient Circles */}
+   <div className="absolute top-[-20%] left-[-5%] w-[40vw] h-[40vw] bg-[#c0a080] opacity-[0.15] rounded-full blur-[100px] pointer-events-none"></div>
+   <div className="absolute bottom-[-20%] right-[-5%] w-[45vw] h-[45vw] bg-[#c0a080] opacity-[0.15] rounded-full blur-[110px] pointer-events-none"></div>
+
+   <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8 relative z-10">
     <div>
      <h3 className="text-xl font-serif font-bold text-[#f8fafc] mb-4">
       BookMe <span className="text-[#c0a080]">Table</span>

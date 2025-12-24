@@ -97,8 +97,12 @@ export default function FAQSection() {
  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
  return (
-  <section className="py-24 bg-[#050505] border-t border-white/5">
-   <div className="container mx-auto px-6">
+  <section className="py-24 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+   {/* Background Gradient Circles */}
+   <div className="absolute top-[-5%] left-[5%] w-[45vw] h-[45vw] bg-[#c0a080] opacity-[0.15] rounded-full blur-[110px] pointer-events-none"></div>
+   <div className="absolute bottom-[-5%] right-[5%] w-[55vw] h-[55vw] bg-[#c0a080] opacity-[0.15] rounded-full blur-[120px] pointer-events-none"></div>
+
+   <div className="container mx-auto px-6 relative z-10">
     <div className="text-center mb-16">
      <motion.h2
       initial={{ opacity: 0, y: 20 }}

@@ -7,28 +7,36 @@ export default function HowItWorks() {
   {
    number: "01",
    title: "Discover",
-   description: "Search and filter thousands of restaurants by cuisine, location, price range, and more to find your perfect dining match."
+   description:
+    "Search and filter thousands of restaurants by cuisine, location, price range, and more to find your perfect dining match.",
   },
   {
    number: "02",
    title: "Book",
-   description: "Choose your date, time, and party size. Get instant confirmation for your reservation with just a few clicks."
+   description:
+    "Choose your date, time, and party size. Get instant confirmation for your reservation with just a few clicks.",
   },
   {
    number: "03",
    title: "Dine",
-   description: "Enjoy your meal at the best restaurants. Your table is reserved and waiting for you."
+   description:
+    "Enjoy your meal at the best restaurants. Your table is reserved and waiting for you.",
   },
   {
    number: "04",
    title: "Earn",
-   description: "Collect points with every booking. Unlock exclusive rewards and special dining perks as you dine out."
-  }
+   description:
+    "Collect points with every booking. Unlock exclusive rewards and special dining perks as you dine out.",
+  },
  ];
 
  return (
-  <section className="py-24 bg-gradient-to-b from-[#050505] to-[#0a0a0a]">
-   <div className="container mx-auto px-6">
+  <section className="py-24 bg-gradient-to-b from-[#050505] to-[#0a0a0a] relative overflow-hidden">
+   {/* Background Gradient Circles */}
+   <div className="absolute top-[20%] left-[-10%] w-[60vw] h-[60vw] bg-[#c0a080] opacity-[0.15] rounded-full blur-[120px] pointer-events-none"></div>
+   {/* <div className="absolute bottom-[10%] right-[-10%] w-[50vw] h-[50vw] bg-[#c0a080] opacity-[0.15] rounded-full blur-[100px] pointer-events-none"></div> */}
+
+   <div className="container mx-auto px-6 relative z-10">
     <div className="text-center mb-16">
      <motion.h2
       initial={{ opacity: 0, y: 20 }}
@@ -70,7 +78,16 @@ export default function HowItWorks() {
        </div>
        {index < steps.length - 1 && (
         <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-[#c0a080]/20">
-         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+         <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round">
           <polyline points="9 18 15 12 9 6"></polyline>
          </svg>
         </div>
