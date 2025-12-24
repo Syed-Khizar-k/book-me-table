@@ -12,6 +12,7 @@ import CategoryTabs from "@/components/CategoryTabs";
 import FeaturesSection from "@/components/FeaturesSection";
 import HowItWorks from "@/components/HowItWorks";
 import CTASection from "@/components/CTASection";
+import FAQSection from "@/components/FAQSection";
 
 function calculateDistance(
  lat1: number,
@@ -124,8 +125,8 @@ export default function Home() {
   <main className="min-h-screen bg-[#050505] text-[#f4f4f5]">
    <Navbar />
    <Hero onSearch={handleSearch} onNearMe={handleNearMe} />
-    <FeaturesSection/>
-    <HowItWorks/>
+   <FeaturesSection />
+   <HowItWorks />
    <section className="container mx-auto px-6 -mt-8 relative z-20 mb-16">
     <div className="bg-[#121212]/80 backdrop-blur-md border border-white/5 p-4 rounded-xl shadow-2xl">
      <CategoryTabs selected={selectedCategory} onSelect={setSelectedCategory} />
@@ -180,7 +181,8 @@ export default function Home() {
      </div>
     )}
    </section>
-    <CTASection/>
+   <FAQSection />
+   <CTASection />
    <Footer />
 
    <ReservationPopup
