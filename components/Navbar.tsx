@@ -42,12 +42,12 @@ export default function Navbar() {
     <div className="flex items-center gap-8">
      <Link
       href="/login"
-      className="hidden md:block text-[#8d7f71] hover:text-[#c0a080] transition-colors text-xs uppercase tracking-widest font-medium">
+      className="hidden md:block text-[#8d7f71] hover:text-[#c0a080] transition-colors text-xs uppercase tracking-widest font-medium cursor-pointer">
       Sign In
      </Link>
      <Link
       href="/signup"
-      className="group relative px-6 py-2 overflow-hidden rounded-full bg-[#c0a080] text-[#050505] text-xs font-bold uppercase tracking-wide transition-all hover:bg-[#d4b494]">
+      className="group relative px-6 py-2 overflow-hidden rounded-full bg-[#c0a080] text-[#050505] text-xs font-bold uppercase tracking-wide transition-all hover:bg-[#d4b494] cursor-pointer">
       <span className="relative z-10">Join</span>
      </Link>
     </div>

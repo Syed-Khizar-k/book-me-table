@@ -24,8 +24,8 @@ export default function Hero({ onSearch, onNearMe }: HeroProps) {
      animate={{ opacity: 1, y: 0 }}
      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
      className="text-5xl md:text-8xl font-serif text-center text-[#f4f4f5] leading-[0.9] tracking-tight mb-8">
-     Curated Dining <br />
-     <span className="text-[#c0a080] italic">Excellence</span>
+     Crafted For <br />
+     <span className="text-[#c0a080] italic">Elite Experience</span>
     </motion.h1>
 
     <motion.div

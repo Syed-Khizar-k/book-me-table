@@ -24,9 +24,11 @@ export interface Restaurant {
   | "Pan Asian"
   | "Seafood"; // New field
  tags: string[]; // For filtering
+ contactNumber: string; // New field
 }
 
 export const cities = [
+ "Gojra",
  "Lahore",
  "Karachi",
  "Islamabad",
@@ -34,6 +36,16 @@ export const cities = [
  "Faisalabad",
  "Multan",
 ];
+
+export const cityCoordinates: Record<string, { lat: number; lng: number }> = {
+ Gojra: { lat: 31.149, lng: 72.684 },
+ Lahore: { lat: 31.5204, lng: 74.3587 },
+ Karachi: { lat: 24.8607, lng: 67.0011 },
+ Islamabad: { lat: 33.6844, lng: 73.0479 },
+ Rawalpindi: { lat: 33.5651, lng: 73.0169 },
+ Faisalabad: { lat: 31.4504, lng: 73.135 },
+ Multan: { lat: 30.1575, lng: 71.5249 },
+};
 
 export const categories = [
  "All",
@@ -59,6 +71,7 @@ export const restaurants: Restaurant[] = [
   cuisine: "Continental",
   category: "Fine Dining",
   tags: ["romantic", "wine", "outdoor"],
+  contactNumber: "+92 300 1234567",
   menu: [
    {
     name: "Truffle Risotto",
@@ -90,6 +103,7 @@ export const restaurants: Restaurant[] = [
   cuisine: "Steakhouse",
   category: "Steakhouse",
   tags: ["luxury", "steak", "business"],
+  contactNumber: "+92 21 35678901",
   menu: [
    {
     name: "Ribeye Steak",
@@ -116,6 +130,7 @@ export const restaurants: Restaurant[] = [
   cuisine: "Pan Asian",
   category: "Pan Asian",
   tags: ["rooftop", "sushi", "view"],
+  contactNumber: "+92 51 2823456",
   menu: [
    {
     name: "Sushi Platter",
@@ -142,6 +157,7 @@ export const restaurants: Restaurant[] = [
   cuisine: "Traditional",
   category: "Desi",
   tags: ["family", "desi", "bbq"],
+  contactNumber: "+92 42 35789012",
   menu: [
    {
     name: "Chicken Karahi",
@@ -168,6 +184,7 @@ export const restaurants: Restaurant[] = [
   cuisine: "Seafood",
   category: "Seafood",
   tags: ["fresh", "seafood", "casual"],
+  contactNumber: "+92 21 35345678",
   menu: [
    {
     name: "Grilled Red Snapper",
@@ -194,6 +211,7 @@ export const restaurants: Restaurant[] = [
   cuisine: "Cafe",
   category: "Cafe",
   tags: ["coffee", "brunch", "wifi"],
+  contactNumber: "+92 42 35756789",
   menu: [
    {
     name: "Eggs Benedict",
@@ -207,14 +225,195 @@ export const restaurants: Restaurant[] = [
    },
   ],
  },
+ {
+  id: "7",
+  name: "Bonsai Gojra",
+  rating: 4.4,
+  image: "/images/restaurant.jpg",
+  city: "Gojra",
+  address: "Tehsil office road , Gojra",
+  coords: { lat: 31.149, lng: 72.684 },
+  reviewCount: 150,
+  priceRange: "$$",
+  cuisine: "Cafe",
+  category: "Cafe",
+  tags: ["Fast Food", "lunch", "Dinner"],
+  contactNumber: "+92 46 3512345",
+  menu: [
+   {
+    name: "Zinger Burger",
+    price: "PKR 650",
+    description: "Crispy chicken fillet with cheese and mayo.",
+   },
+   {
+    name: "Chicken Pizza",
+    price: "PKR 1200",
+    description: "Spicy chicken with onions and capsicum.",
+   },
+  ],
+ },
+ {
+  id: "8",
+  name: "B Relish",
+  rating: 4.3,
+  image: "/images/restaurant.jpg",
+  city: "Gojra",
+  address: "Tehsil office Road , Gojra",
+  coords: { lat: 31.15, lng: 72.69 },
+  reviewCount: 80,
+  priceRange: "$$",
+  cuisine: "Fast Food",
+  category: "Cafe",
+  tags: ["Fast Food", "lunch", "Dinner"],
+  contactNumber: "+92 46 3516789",
+  menu: [
+   {
+    name: "Chicken Tikka",
+    price: "PKR 400",
+    description: "Charcoal grilled marinated chicken.",
+   },
+   {
+    name: "Seekh Kabab",
+    price: "PKR 500",
+    description: "Spicy minced meat skewers.",
+   },
+  ],
+ },
+ {
+  id: "9",
+  name: "Savour Foods",
+  rating: 4.8,
+  image: "/images/restaurant.jpg",
+  city: "Gojra",
+  address: "Tehsil office Road , Gojra",
+  coords: { lat: 31.15, lng: 72.69 },
+  reviewCount: 400,
+  priceRange: "$$$$",
+  cuisine: "Continental",
+  category: "Fine Dining",
+  tags: ["luxury", "buffet", "event"],
+  contactNumber: "+92 41 111133133",
+  menu: [
+   {
+    name: "Hi-Tea Buffet",
+    price: "PKR 2500",
+    description: "Assorted savory and sweet treats.",
+   },
+   {
+    name: "Grilled Fish",
+    price: "PKR 2200",
+    description: "Lemon butter sauce grilled fish.",
+   },
+  ],
+ },
+ {
+  id: "10",
+  name: "Fork N Knives",
+  rating: 4.2,
+  image: "/images/restaurant.jpg",
+  city: "Faisalabad",
+  address: "D Ground, Faisalabad",
+  coords: { lat: 31.41, lng: 73.1 },
+  reviewCount: 350,
+  priceRange: "$$",
+  cuisine: "Fast Food",
+  category: "Cafe",
+  tags: ["pizza", "burger", "casual"],
+  contactNumber: "+92 41 8543210",
+  menu: [
+   {
+    name: "Stuffed Pizza",
+    price: "PKR 1800",
+    description: "Cheese stuffed crust pizza.",
+   },
+   {
+    name: "Pasta Alfredo",
+    price: "PKR 900",
+    description: "Creamy white sauce pasta.",
+   },
+  ],
+ },
+ {
+  id: "11",
+  name: "Savour Foods",
+  rating: 4.6,
+  image: "/images/restaurant.jpg",
+  city: "Islamabad",
+  address: "Blue Area, Islamabad",
+  coords: { lat: 33.71, lng: 73.06 },
+  reviewCount: 1500,
+  priceRange: "$$",
+  cuisine: "Traditional",
+  category: "Desi",
+  tags: ["pulao", "budget", "famous"],
+  contactNumber: "+92 51 111123456",
+  menu: [
+   {
+    name: "Savour Pulao Kabab",
+    price: "PKR 600",
+    description: "Famous chicken pulao with shami kabab.",
+   },
+  ],
+ },
+ {
+  id: "12",
+  name: "Fork N Knives",
+  rating: 4.2,
+  image: "/images/restaurant.jpg",
+  city: "Gojra",
+  address: "Tehsil office road, Gojra",
+  coords: { lat: 31.149, lng: 72.684 },
+  reviewCount: 350,
+  priceRange: "$$",
+  cuisine: "Fast Food",
+  category: "Cafe",
+  tags: ["pizza", "burger", "casual"],
+  contactNumber: "+92 41 8543210",
+  menu: [
+   {
+    name: "Stuffed Pizza",
+    price: "PKR 1800",
+    description: "Cheese stuffed crust pizza.",
+   },
+   {
+    name: "Pasta Alfredo",
+    price: "PKR 900",
+    description: "Creamy white sauce pasta.",
+   },
+  ],
+ },
+ {
+  id: "13",
+  name: "Savour Foods",
+  rating: 4.6,
+  image: "/images/restaurant.jpg",
+  city: "Gojra",
+  address: "Tehsil office Road , Gojra",
+  coords: { lat: 31.149, lng: 72.684 },
+  reviewCount: 1500,
+  priceRange: "$$",
+  cuisine: "Traditional",
+  category: "Desi",
+  tags: ["pulao", "budget", "famous"],
+  contactNumber: "+92 51 111123456",
+  menu: [
+   {
+    name: "Savour Pulao Kabab",
+    price: "PKR 600",
+    description: "Famous chicken pulao with shami kabab.",
+   },
+  ],
+ },
 ];
 
 export const mockTimeSlots = [
- "18:00",
- "18:30",
- "19:00",
- "19:30",
- "20:00",
- "20:30",
- "21:00",
+ "2:00 PM",
+ "3:00 PM",
+ "4:00 PM",
+ "5:00 PM",
+ "6:00 PM",
+ "7:00 PM",
+ "8:00 PM",
+ "9:00 PM",
+ "10:00 PM",
 ];

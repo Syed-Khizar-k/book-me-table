@@ -79,7 +79,7 @@ export default function RestaurantCard({
        <button
         key={slot}
         onClick={onReserve}
-        className="bg-[#c0a080] text-[#050505] text-xs font-bold px-3 py-2 rounded hover:bg-[#d4b494] transition-colors">
+        className="bg-[#c0a080] text-[#050505] text-xs font-bold px-3 py-2 rounded hover:bg-[#d4b494] transition-colors cursor-pointer">
         {slot}
        </button>
       ))}
@@ -88,7 +88,7 @@ export default function RestaurantCard({
      <div className="flex gap-4 border-t border-white/5 pt-4">
       <button
        onClick={onViewMenu}
-       className="flex-1 text-[#525252] text-xs font-bold uppercase tracking-widest hover:text-[#f4f4f5] transition-colors text-center">
+       className="flex-1 text-[#525252] text-xs font-bold uppercase tracking-widest hover:text-[#f4f4f5] transition-colors text-center cursor-pointer">
        View Menu
       </button>
      </div>

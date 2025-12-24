@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { restaurants, Restaurant } from "@/lib/data";
+import { restaurants, Restaurant, cityCoordinates } from "@/lib/data";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import RestaurantCard from "@/components/RestaurantCard";
@@ -9,6 +9,30 @@ import Footer from "@/components/Footer";
 import ReservationPopup from "@/components/ReservationPopup";
 import MenuModal from "@/components/MenuModal";
 import CategoryTabs from "@/components/CategoryTabs";
+
+function calculateDistance(
+ lat1: number,
+ lon1: number,
+ lat2: number,
+ lon2: number
+) {
+ const R = 6371; // Radius of the earth in km
+ const dLat = deg2rad(lat2 - lat1);
+ const dLon = deg2rad(lon2 - lon1);
+ const a =
+  Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+  Math.cos(deg2rad(lat1)) *
+   Math.cos(deg2rad(lat2)) *
+   Math.sin(dLon / 2) *
+   Math.sin(dLon / 2);
+ const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+ const d = R * c; // Distance in km
+ return d;
+}
+
+function deg2rad(deg: number) {
+ return deg * (Math.PI / 180);
+}
 
 export default function Home() {
  const [searchQuery, setSearchQuery] = useState("");
@@ -30,15 +54,43 @@ export default function Home() {
  const handleNearMe = () => {
   if ("geolocation" in navigator) {
    navigator.geolocation.getCurrentPosition(
-    () => {
-     alert("Location detected! Showing results for your area.");
-     setSelectedCity("Lahore");
+    (position) => {
+     const { latitude, longitude } = position.coords;
+
+     let nearestCity = "";
+     let minDistance = Infinity;
+
+     Object.entries(cityCoordinates).forEach(([city, coords]) => {
+      const distance = calculateDistance(
+       latitude,
+       longitude,
+       coords.lat,
+       coords.lng
+      );
+      if (distance < minDistance) {
+       minDistance = distance;
+       nearestCity = city;
+      }
+     });
+
+     if (nearestCity && minDistance < 50) {
+      // Within 50km
+      alert(`Location detected! Showing results for ${nearestCity}.`);
+      setSelectedCity(nearestCity);
+     } else {
+      alert(
+       "No supported cities found near your location. Defaulting to Gojra."
+      );
+      setSelectedCity("Gojra");
+     }
     },
     (error) => {
      console.error(error);
-     alert("Could not get your location.");
+     alert("Could not get your location. Please check browser permissions.");
     }
    );
+  } else {
+   alert("Geolocation is not supported by your browser.");
   }
  };
 
@@ -76,7 +128,7 @@ export default function Home() {
     </div>
    </section>
 
-   <section className="container mx-auto px-6 pb-32">
+   <section id="results" className="container mx-auto px-6 pb-32 ">
     <div className="flex justify-between items-end mb-10 px-2">
      <div>
       <h2 className="text-3xl font-serif text-[#f4f4f5]">
@@ -138,6 +190,7 @@ export default function Home() {
      onClose={() => setMenuOpen(false)}
      restaurantName={selectedRestaurant.name}
      items={selectedRestaurant.menu}
+     contactNumber={selectedRestaurant.contactNumber}
     />
    )}
   </main>

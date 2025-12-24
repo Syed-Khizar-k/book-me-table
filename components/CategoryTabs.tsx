@@ -19,7 +19,7 @@ export default function CategoryTabs({
      <button
       key={category}
       onClick={() => onSelect(category)}
-      className={`relative px-6 py-2 text-sm font-bold uppercase tracking-widest transition-colors ${
+      className={`relative px-6 py-2 text-sm font-bold uppercase tracking-widest transition-colors cursor-pointer ${
        selected === category
         ? "text-[#c0a080]"
         : "text-[#525252] hover:text-[#f4f4f5]"
